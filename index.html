@@ -1,0 +1,219 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#141411"><meta name="description" content="Painel de produção e desempenho do canal Zupi"><title>Zupi Studio</title><style>
+:root{color-scheme:dark;--bg:#141411;--panel:#1d1c18;--line:#353229;--text:#f6f0e2;--muted:#b5ad9e;--gold:#f6c65f;--green:#9ad5b0;--blue:#a8c4ef;font:16px Inter,system-ui,sans-serif}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);display:grid;grid-template-columns:238px 1fr;min-height:100vh}aside{position:sticky;top:0;height:100vh;background:#191813;border-right:1px solid var(--line);display:flex;flex-direction:column;padding:31px 19px}.brand{display:flex;align-items:center;gap:13px;font-weight:900;font-size:22px;letter-spacing:.07em;padding:0 8px}.brand span{display:grid;place-items:center;background:var(--gold);color:#1b160a;width:44px;height:44px;border-radius:10px;font-style:italic;font-size:28px}.brand small{display:block;font-size:11px;color:var(--muted);letter-spacing:.23em}nav{display:grid;gap:6px;margin-top:42px}button,input,select,textarea{font:inherit;color:inherit}button{cursor:pointer;background:#25231d;border:1px solid var(--line);border-radius:8px;padding:9px 13px;font-size:.9rem;font-weight:650}button:hover{border-color:var(--gold)}button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:2px solid var(--gold);outline-offset:2px}nav button{text-align:left;border:1px solid transparent;background:transparent;color:var(--muted);white-space:nowrap;padding:12px}nav button.active{background:#322a19;border-color:#483a20;color:var(--gold)}nav b{display:inline-block;width:28px;font-size:1.05rem}.asidefoot{margin-top:auto;padding:18px 8px 0;border-top:1px solid var(--line)}small,.muted,label,th{color:var(--muted)}i{display:inline-block;width:7px;height:7px;border-radius:100%;background:var(--green);margin-right:6px}main{min-width:0}header{height:77px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 36px}header span,.eyebrow{font-size:.78rem;letter-spacing:.14em;font-weight:800;color:var(--gold)}header span{color:var(--muted)}.gold{background:var(--gold);color:#201707;border-color:var(--gold)}.gold:hover{background:#ffdb86}#page,footer{max-width:1440px;margin:auto;padding:30px 36px}footer{display:flex;justify-content:space-between;gap:12px;color:var(--muted);font-size:.83rem}.hero{isolation:isolate;position:relative;overflow:hidden;background:linear-gradient(106deg,#2c2415,#201c13 60%,#413019);border:1px solid #514024;border-radius:15px;padding:32px 34px;min-height:181px}.hero:after{content:"Z";position:absolute;z-index:-1;right:3%;top:-95px;line-height:1;color:#f6c65f12;font-size:360px;font-weight:1000;font-style:italic;transform:rotate(-13deg);text-shadow:12px 0 #f6c65f0b}.hero h1{font-size:clamp(2rem,4vw,3.15rem);letter-spacing:-.055em;margin:5px 0 7px}.hero p,h1+p{margin:0;color:#d1c6b1}.cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin:20px 0 26px}.card,.panel{background:var(--panel);border:1px solid var(--line);border-radius:12px}.card{padding:17px}.card b{font-size:1.85rem;display:block;margin-top:5px}.card .icon{float:right;color:var(--gold);font-size:1.15rem}.split{display:grid;grid-template-columns:minmax(0,2.65fr) minmax(220px,1fr);gap:16px;align-items:start}.panel{padding:18px;margin-bottom:16px}.panel h2{font-size:1.15rem;margin:0}.bar{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:15px}.scroll{overflow:auto}table{width:100%;border-collapse:collapse;text-align:left}th,td{padding:12px 8px;border-bottom:1px solid var(--line);white-space:nowrap;font-size:.88rem}tbody tr:last-child td{border-bottom:none}.sub{display:block;font-size:.8rem;color:var(--muted);margin-top:4px}.tag{display:inline-block;border-radius:5px;background:#343026;color:#deceb2;padding:4px 7px;font-size:.76rem;font-weight:750}.s1{background:#292f3a;color:var(--blue)}.s2{background:#25382b;color:var(--green)}.quick{display:flex;gap:5px}.quick button{padding:5px 8px}.entry{border-top:1px solid var(--line);padding:12px 0}.entry:last-child{padding-bottom:0}.empty{color:var(--muted);padding:15px 0;margin:0}.heading{margin:0 0 8px;font-size:2rem;letter-spacing:-.04em}.intro{margin-bottom:22px}.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}input,select,textarea{border:1px solid #484235;background:#161511;border-radius:7px;padding:9px 10px;min-width:0}.calendar{display:grid;grid-template-columns:repeat(7,1fr);gap:5px}.day{min-height:78px;border:1px solid var(--line);border-radius:7px;padding:6px;min-width:0}.day button{display:block;width:100%;margin-top:4px;text-align:left;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;padding:4px;font-size:.75rem}.today{border-color:var(--gold)}dialog{background:var(--panel);color:var(--text);width:min(760px,95vw);max-height:91vh;border:1px solid var(--line);border-radius:13px;padding:0}dialog::backdrop{background:#000b}.dialog-head,.dialog-foot{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:14px 20px;position:sticky;background:var(--panel);z-index:2}.dialog-head{top:0;border-bottom:1px solid var(--line)}.dialog-head h2{margin:0;font-size:1.2rem}.dialog-foot{bottom:0;border-top:1px solid var(--line);justify-content:end}.formbody{padding:16px 20px}.fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.fields label{display:grid;gap:5px;font-size:.88rem}.fields .wide{grid-column:1/-1}textarea{resize:vertical;min-height:75px}fieldset{margin:0 0 16px;border:1px solid var(--line);border-radius:8px;padding:12px}legend{color:var(--gold);font-weight:750;padding:0 6px}.checks{display:flex;flex-wrap:wrap;gap:11px}.checks label{display:flex;gap:5px;align-items:center}.actions{display:flex;flex-wrap:wrap;gap:8px}.notes{white-space:pre-wrap;overflow-wrap:anywhere}#toast{position:fixed;bottom:20px;right:20px;background:var(--gold);color:#201707;border-radius:8px;padding:9px 14px;z-index:5}#toast:empty{display:none}@media(max-width:1050px){.split{grid-template-columns:1fr}.split>*{min-width:0}}@media(max-width:720px){body{display:block}aside{position:static;height:auto;padding:13px 15px;gap:12px}.brand span{width:36px;height:36px}.asidefoot{display:none}nav{display:flex;overflow:auto;margin:0}nav button{padding:8px}nav b{width:19px}header{height:60px;padding:0 15px}#page,footer{padding:16px 15px}.hero{padding:25px 18px}.cards{grid-template-columns:repeat(2,1fr)}.panel{padding:12px}.day{min-height:60px;padding:3px}.fields{gap:9px}}
+</style></head>
+<body><aside><div class="brand"><span> Z </span><div>ZUPI <small>STUDIO</small></div></div><nav aria-label="Painel"></nav><div class="asidefoot"><i></i> Canal Zupi<br><small>Gameplay sem comentários</small></div></aside><main><header><span>ESTÚDIO DO CANAL</span><button class="gold" data-act="new">＋ Novo vídeo</button></header><div id="page"></div><footer>Zupi Studio <span>Dados salvos neste navegador</span></footer></main><dialog id="editor"><form id="form"></form></dialog><output id="toast" aria-live="polite"></output><script>
+'use strict';
+const $ = s => document.querySelector(s);
+const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const stages = [['record','Gravação'],['edit','Edição'],['export','Exportação'],['upload','Upload'],['publish','Publicação']];
+const states = ['Pendente','Em andamento','Pronto'];
+const checks = [['contrast','Contraste e legibilidade'],['branding','Selo e identidade Zupi'],['mobile','Prévia no celular'],['end','Tela final conferida']];
+const signatures = ['4K 60FPS GOLD','Full HD 60FPS'];
+const pages = [['home','◈','Visão geral'],['videos','▤','Vídeos'],['calendar','▦','Calendário'],['stats','▥','Desempenho'],['templates','▣','Templates'],['notes','✎','Diário do canal']];
+const key = 'zupi-studio-v1';
+const newId = () => crypto.randomUUID?.() ?? Array.from(crypto.getRandomValues(new Uint8Array(16)), byte => byte.toString(16).padStart(2, "0")).join("");
+function blank() {
+  return {game:'',chapter:'',episode:1,signature:signatures[0],res:'3840 × 2160',fps:60,minutes:40,audio:'Áudio do jogo • estéreo',description:'No commentary gameplay walkthrough.\n\nEpisode highlights: \n\nWatch the next episode: ', ...Object.fromEntries(stages.map(([k])=>[k,0]))};
+}
+const zelda = 'Zelda: Ocarina of Time';
+const starter = ['Kokiri Forest','Hyrule Castle','Kakariko Village','Goron City & Saria’s Song','Dodongo’s Cavern & Great Fairy','Great Fairy & Zora’s Domain','Inside Jabu-Jabu’s Belly','Happy Mask Quest & Ocarina of Time','Deku Nuts Upgrade, Hookshot & Epona','Forest Temple & Prelude of Light'];
+const seed = () => ({
+  videos: starter.map((chapter, i) => ({...blank(), id:newId(),game:zelda,chapter,episode:i+1,title:`Zelda: Ocarina of Time – #${i+1}: ${chapter} [4K 60FPS]`})),
+  templates: [{...blank(),id:newId(),name:'Gameplay · 4K GOLD'}, {...blank(),id:newId(),name:'Gameplay · Full HD',signature:signatures[1],res:'1920 × 1080'}],
+  notes:[]
+});
+let data;
+try { data = JSON.parse(localStorage.getItem(key)); } catch {}
+data ??= seed();
+let view = 'home', game = '', query = '', stateFilter = '', month = new Date(), editing;
+const page = $('#page'), editor = $('#editor'), form = $('#form');
+const byId = (kind,id) => data[kind].find(v=>v.id===id);
+const status = (v,k) => Number(v[k] || 0);
+const allReady = v => stages.every(([k])=>status(v,k)===2);
+const overall = v => allReady(v) ? 2 : stages.some(([k])=>status(v,k)>0) ? 1 : 0;
+const tag = n => `<span class="tag s${n}">${states[n]}</span>`;
+const button = (a,t,id='',className='') => `<button type="button" class="${className}" data-act="${a}" data-id="${esc(id)}">${t}</button>`;
+const heading = (name,sub) => `<div class="intro"><h1 class="heading">${name}</h1><p>${sub}</p></div>`;
+const empty = t => `<p class="empty">${t}</p>`;
+const date = s => s ? new Date(s+'T12:00:00').toLocaleDateString('pt-BR') : '—';
+function save() {
+  try { localStorage.setItem(key,JSON.stringify(data)); return true; }
+  catch { notice('Não foi possível salvar os dados neste navegador.'); return false; }
+}
+function notice(message) {
+  $('#toast').textContent = message;
+  clearTimeout(notice.timer);
+  notice.timer = setTimeout(()=>$('#toast').textContent='',3200);
+}
+const titleCell = v => `<strong>#${esc(v.episode)} · ${esc(v.chapter || v.title || 'Sem capítulo')}</strong><span class="sub">${esc(v.game)}</span>`;
+function videoTable(videos, full=false) {
+  if (!videos.length) return empty('Nenhum vídeo nesta seleção.');
+  return `<div class="scroll"><table><thead><tr><th>Vídeo</th>${full?stages.map(([,l])=>`<th>${l}</th>`).join(''):'<th>Status</th>'}<th>Data</th><th>Ações</th></tr></thead><tbody>${videos.map(v=>`<tr><td>${titleCell(v)}</td>${full?stages.map(([k])=>`<td>${tag(status(v,k))}</td>`).join(''):`<td>${tag(overall(v))}</td>`}<td>${date(v.date)}</td><td><div class="quick">${button('edit','Editar',v.id)}${button('duplicate','Duplicar',v.id)}</div></td></tr>`).join('')}</tbody></table></div>`;
+}
+function home() {
+  const totals = [data.videos.length,...states.map((_,i)=>data.videos.filter(v=>overall(v)===i).length)];
+  const upcoming = data.videos.filter(v=>v.date && status(v,'publish')!==2).sort((a,b)=>a.date.localeCompare(b.date));
+  return `<section class="hero"><div class="eyebrow">PRODUÇÃO DE GAMEPLAY</div><h1>Central do Zupi</h1><p>Sem comentários · Sem facecam · 30–50 min · EUA e público internacional</p></section>
+  <section class="cards">${['Vídeos','Pendentes','Em andamento','Prontos'].map((name,i)=>`<div class="card"><span class="icon">${['▤','◷','◒','✓'][i]}</span><small>${name}</small><b>${totals[i]}</b></div>`).join('')}</section>
+  <div class="split"><section class="panel"><div class="bar"><h2>Fila de produção</h2>${button('go','Ver todos','videos')}</div>${videoTable(data.videos.filter(v=>!allReady(v)).slice(-5).reverse())}</section>
+  <div><section class="panel"><div class="bar"><h2>Próximas publicações</h2></div>${upcoming.slice(0,5).map(v=>`<div class="entry">${button('edit',esc(v.chapter || v.title),v.id)}<span class="sub">${date(v.date)} ${esc(v.time||'')}</span></div>`).join('')||empty('Nenhuma publicação agendada.')}${button('go','Abrir calendário','calendar')}</section>
+  <section class="panel"><div class="bar"><h2>Novo a partir de</h2></div><div class="actions">${data.templates.slice(0,3).map(v=>button('use',esc(v.name),v.id)).join('')||empty('Crie um template para começar.')}</div></section></div></div>`;
+}
+function videos() {
+  const games = [...new Set(data.videos.map(v=>v.game).filter(Boolean))].sort();
+  const rows = data.videos.filter(v=>(!game || game===v.game) && (stateFilter==='' || +stateFilter===overall(v)) && [v.game,v.chapter,v.title,'#'+v.episode].some(s=>String(s??'').toLowerCase().includes(query.toLowerCase())));
+  return heading('Vídeos','Organize suas séries e acompanhe cada etapa.')+`<section class="panel"><div class="filters"><input id="search" aria-label="Buscar vídeos" placeholder="Buscar jogo, capítulo ou episódio" value="${esc(query)}"><select id="game" aria-label="Filtrar por jogo"><option value="">Todos os jogos</option>${games.map(g=>`<option ${g===game?'selected':''}>${esc(g)}</option>`).join('')}</select><select id="state" aria-label="Filtrar por status"><option value="">Todos os status</option>${states.map((s,i)=>`<option value="${i}" ${stateFilter===String(i)?'selected':''}>${s}</option>`).join('')}</select></div><div id="videoRows">${videoTable(rows,true)}</div></section>`;
+}
+function calendar() {
+  const year=month.getFullYear(), m=month.getMonth(), first=new Date(year,m,1).getDay(), count=new Date(year,m+1,0).getDate();
+  const today=new Date().toLocaleDateString('sv-SE');
+  return heading('Calendário de publicação','Planeje a data e o horário de cada vídeo. Horários de Nova York (ET).')+`<section class="panel"><div class="bar"><h2>${month.toLocaleDateString('pt-BR',{month:'long',year:'numeric'})}</h2><div class="actions">${button('month','Anterior','-1')}${button('month','Hoje','0')}${button('month','Seguinte','1')}</div></div><div class="calendar">${['Dom','Seg','Ter','Qua','Qui','Sex','Sáb'].map(s=>`<small>${s}</small>`).join('')}${'<div></div>'.repeat(first)}${Array.from({length:count},(_,i)=>{
+    const day=i+1, keyDate=`${year}-${String(m+1).padStart(2,'0')}-${String(day).padStart(2,'0')}`;
+    return `<div class="day ${today===keyDate?'today':''}"><small>${day}</small>${data.videos.filter(v=>v.date===keyDate).sort((a,b)=>(a.time||'').localeCompare(b.time||'')).map(v=>button('edit',esc([v.time,'#'+v.episode,v.chapter].filter(Boolean).join(' ')),v.id,status(v,'publish')===2?'s2':'')).join('')}</div>`;
+  }).join('')}</div></section>`;
+}
+const metrics = [['views','Visualizações'],['impressions','Impressões'],['ctr','CTR (%)'],['avg','Duração média'],['subs','Inscritos ganhos']];
+const fmt = (v,k) => v[k]==='' || v[k]==null ? '—' : k==='avg'?esc(v[k]):Number(v[k]).toLocaleString('pt-BR')+(k==='ctr'?'%':'');
+function stats() {
+  const published = data.videos.filter(v=>status(v,'publish')===2);
+  return heading('Desempenho','Registre os dados do YouTube Studio e acompanhe a entrega de cada vídeo.')+`<section class="panel">${published.length?`<div class="scroll"><table><thead><tr><th>Vídeo</th>${metrics.map(([,l])=>`<th>${l}</th>`).join('')}<th>Tráfego</th><th>Período</th><th>Ações</th></tr></thead><tbody>${published.map(v=>`<tr><td>${titleCell(v)}</td>${metrics.map(([k])=>`<td>${fmt(v,k)}</td>`).join('')}<td>${esc(v.traffic||'—')}</td><td>${esc(v.period||'—')}</td><td>${button('metrics','Editar métricas',v.id)}</td></tr>`).join('')}</tbody></table></div>`:empty('Marque a etapa Publicação como Pronto para acompanhar o vídeo aqui.')}${published.filter(v=>v.delivery).map(v=>`<div class="entry">${titleCell(v)}<p class="notes muted">${esc(v.delivery)}</p></div>`).join('')}</section>`;
+}
+function templates() {
+  return heading('Templates','Reutilize configurações de captura, exportação e publicação.')+`<section class="panel"><div class="bar"><h2>Modelos salvos</h2>${button('newTemplate','＋ Novo template','','gold')}</div>${data.templates.map(v=>`<div class="entry"><div class="bar"><div><strong>${esc(v.name)}</strong><span class="sub">${esc(v.signature)} · ${esc(v.res)}</span></div><div class="actions">${button('use','Usar template',v.id,'gold')}${button('editTemplate','Editar',v.id)}${button('copyTemplate','Duplicar',v.id)}</div></div></div>`).join('')||empty('Nenhum template salvo.')}</section>`;
+}
+const noteTypes = ['Solução · OBS','Solução · DaVinci Resolve','Decisão de qualidade','Próximo vídeo','Teste de título','Teste de thumbnail'];
+function notes() {
+  return heading('Diário do canal','Registre soluções, próximos vídeos, decisões de qualidade e resultados de testes.')+`<section class="panel"><div class="bar"><h2>Registros</h2>${button('newNote','＋ Novo registro','','gold')}</div>${data.notes.slice().reverse().map(v=>`<div class="entry"><div class="bar"><div><span class="tag">${esc(v.type)}</span> <strong>${esc(v.name)}</strong><span class="sub">${esc(v.related)} ${v.date?'· '+date(v.date):''}</span></div>${button('editNote','Editar',v.id)}</div><p class="notes">${esc(v.body)}</p>${v.result?`<p class="notes muted">${esc(v.result)}</p>`:''}</div>`).join('')||empty('Nenhum registro criado.')}</section>`;
+}
+function render() {
+  $('nav').innerHTML=pages.map(([k,i,l])=>`<button type="button" data-act="go" data-id="${k}" class="${k===view?'active':''}" ${k===view?'aria-current="page"':''}><b aria-hidden="true">${i}</b>${l}</button>`).join('');
+  page.innerHTML=({home,videos,calendar,stats,templates,notes})[view]();
+}
+function field(v,k,label,kind='text',options='',wide=false) {
+  const input = kind==='area' ? `<textarea name="${k}" ${options}>${esc(v[k])}</textarea>` :
+    Array.isArray(kind) ? `<select name="${k}">${kind.map(([value,text])=>`<option value="${esc(value)}" ${String(v[k])===String(value)?'selected':''}>${esc(text)}</option>`).join('')}</select>` :
+    `<input type="${kind}" name="${k}" value="${esc(v[k])}" ${options}>`;
+  return `<label class="${wide?'wide':''}">${label}${input}</label>`;
+}
+const paired = list => list.map(x=>[x,x]);
+const group = (label,body) => `<fieldset><legend>${label}</legend><div class="fields">${body}</div></fieldset>`;
+function tech(v) {
+  const f=(...args)=>field(v,...args);
+  return group('Captura e exportação',f('signature','Assinatura',paired(signatures))+f('res','Resolução')+f('fps','FPS','number','min="1"')+f('minutes','Duração do episódio (min)','number','min="1" step="0.1"')+f('audio','Áudio')+f('bitrate','Bitrate de vídeo (Mb/s)','number','min="0" step="0.1"')+f('size','Tamanho estimado (GB)','number','min="0" step="0.01"')+`<div><output id="estimate" class="sub"></output>${button('size','Usar estimativa')}</div>`+f('obs','Problemas no OBS','area','',true)+f('resolve','Problemas no DaVinci Resolve','area','',true));
+}
+function metadata(v) {
+  const f=(...args)=>field(v,...args);
+  return group('YouTube · conteúdo em inglês',f('title','Título em inglês','text','maxlength="100"',true)+`<div class="wide actions">${button('generate','Gerar título do episódio')}<output id="count" class="sub"></output></div>`+f('description','Descrição em inglês','area','lang="en"',true)+f('thumbnail','Arquivo ou conceito da thumbnail')+f('endScreen','Tela final · próximo vídeo ou playlist')+`<div class="wide checks">${checks.map(([k,l])=>`<label><input type="checkbox" name="${k}" ${v[k]?'checked':''}>${l}</label>`).join('')}</div>`);
+}
+function analytics(v) {
+  const f=(...args)=>field(v,...args);
+  return group('Métricas do YouTube Studio',metrics.map(([k,l])=>f(k,l,k==='avg'?'text':'number',k==='ctr'?'min="0" max="100" step="0.01"':k==='avg'?'placeholder="mm:ss"':'min="0" step="1"')).join('')+f('period','Período analisado','text','placeholder="Ex. primeiros 7 dias"')+f('traffic','Origem do tráfego','area','placeholder="Ex. Pesquisa do YouTube, vídeos sugeridos"',true)+f('delivery','Observações sobre a entrega do YouTube','area','',true));
+}
+function formFor(kind,v,mode) {
+  editing={kind,v,mode};
+  const f=(...args)=>field(v,...args);
+  let title,body;
+  if(mode==='metrics') {
+    title='Desempenho · #'+v.episode;
+    body=analytics(v);
+  } else if(kind==='notes') {
+    title=v.id?'Editar registro':'Novo registro';
+    body=group('Registro',f('type','Tipo',paired(noteTypes))+f('date','Data','date')+f('name','Título','text','required',true)+f('related','Jogo, episódio ou vídeo relacionado','text','',true)+f('body','Observações e ações','area','required',true)+f('result','Resultado ou próxima ação','area','',true));
+  } else {
+    const isTemplate=kind==='templates';
+    title=isTemplate?(v.id?'Editar template':'Novo template'):(v.id?'Editar vídeo':'Novo vídeo');
+    body=group(isTemplate?'Identificação do template':'Identificação e calendário',(isTemplate?f('name','Nome do template','text','required',true):'')+f('game','Jogo','text',isTemplate?'':'required')+f('chapter','Capítulo ou missão')+f('episode','Número do episódio','number','min="1" required')+(isTemplate?'':f('date','Data de publicação','date')+f('time','Horário (ET)','time')))+
+      (isTemplate?'':group('Etapas independentes',stages.map(([k,l])=>f(k,l,states.map((s,i)=>[i,s]))).join('')))+
+      metadata(v)+tech(v);
+  }
+  form.innerHTML=`<div class="dialog-head"><h2 id="dialogTitle">${esc(title)}</h2>${button('close','✕ Fechar')}</div><div class="formbody">${body}</div><div class="dialog-foot">${v.id&&mode!=='metrics'?button('delete','Excluir'):''}${v.id&&kind==='videos'&&mode!=='metrics'?button('extract','Salvar como template'):''}<button type="submit" class="gold">Salvar</button></div>`;
+  editor.setAttribute('aria-labelledby','dialogTitle');
+  if(!editor.open) editor.showModal();
+  editor.scrollTop=0;
+  refreshHints();
+}
+function readForm() {
+  return {...editing.v,...Object.fromEntries(new FormData(form)),...Object.fromEntries(checks.filter(([k])=>form.elements[k]).map(([k])=>[k,form.elements[k].checked]))};
+}
+function reusable(v) {
+  const copy={...blank()};
+  for(const k of ['game','chapter','episode','title','description','signature','res','fps','minutes','audio','bitrate','size','endScreen','thumbnail']) if(v[k]!=null) copy[k]=v[k];
+  return copy;
+}
+function nextFrom(v) {
+  const episode=Math.max(Number(v.episode)||0,...data.videos.filter(x=>x.game===v.game).map(x=>Number(x.episode)||0))+1;
+  formFor('videos',{...reusable(v),episode,chapter:'',title:'',description:blank().description,thumbnail:'',endScreen:''});
+  notice('Novo episódio com etapas pendentes. Preencha o capítulo e salve.');
+}
+function estimate() {
+  const bitrate=+form.elements.bitrate?.value, minutes=+form.elements.minutes?.value;
+  return bitrate>0 && minutes>0 ? (bitrate*minutes*60/8000).toFixed(2) : '';
+}
+function refreshHints() {
+  if($('#estimate')) $('#estimate').textContent=estimate()?`≈ ${estimate()} GB, sem incluir áudio`:'Informe duração e bitrate para estimar.';
+  if($('#count')) $('#count').textContent=form.elements.title.value.length+' / 100';
+}
+form.addEventListener('input',refreshHints);
+form.addEventListener('submit',e=>{
+  e.preventDefault();
+  const {kind,v}=editing, item=readForm();
+  const existing=data[kind].findIndex(x=>x.id===v.id);
+  item.id=v.id||newId();
+  const previous=data[kind].slice();
+  if(existing<0) data[kind].push(item);
+  else data[kind][existing]=item;
+  if(!save()) {data[kind]=previous;return;}
+  editor.close();render();notice('Alterações salvas.');
+});
+function openAction(act,id) {
+  if(act==='go') {view=id;render();return;}
+  if(act==='new') {formFor('videos',{...blank(),game});return;}
+  if(act==='edit'||act==='metrics') formFor('videos',byId('videos',id),act);
+  if(act==='duplicate') nextFrom(byId('videos',id));
+  if(act==='newTemplate') formFor('templates',blank());
+  if(act==='editTemplate') formFor('templates',byId('templates',id));
+  if(act==='copyTemplate') {const v=byId('templates',id);formFor('templates',{...reusable(v),name:v.name+' (cópia)'});}
+  if(act==='use') {
+    const v=byId('templates',id);
+    const next=v.game ? Math.max(0,...data.videos.filter(x=>x.game===v.game).map(x=>Number(x.episode)||0))+1 : v.episode;
+    formFor('videos',{...reusable(v),episode:Math.max(next,Number(v.episode)||1)});
+  }
+  if(act==='newNote') formFor('notes',{type:noteTypes[0],date:new Date().toLocaleDateString('sv-SE',{timeZone:'America/New_York'})});
+  if(act==='editNote') formFor('notes',byId('notes',id));
+  if(act==='close') editor.close();
+  if(act==='extract') {const v=readForm();formFor('templates',{...reusable(v),name:v.game+' · '+v.signature,chapter:'',title:'',episode:1,thumbnail:'',endScreen:''});}
+  if(act==='month') {month=+id===0?new Date():new Date(month.getFullYear(),month.getMonth()+Number(id),1);render();}
+  if(act==='generate') {
+    const v=readForm();
+    if(!v.game.trim()||!v.chapter.trim()) {notice('Preencha o jogo e o capítulo.');return;}
+    const suffix=v.signature===signatures[0]?'4K 60FPS':'Full HD 60FPS';
+    const title=`${v.game} – #${v.episode}: ${v.chapter} [${suffix}]`;
+    if(title.length>100) {notice('O título ultrapassa 100 caracteres. Encurte o jogo ou o capítulo.');return;}
+    form.elements.title.value=title;refreshHints();
+  }
+  if(act==='size' && estimate()) form.elements.size.value=estimate();
+  if(act==='delete' && confirm('Excluir este registro?')) {
+    const {kind,v}=editing, previous=data[kind];
+    data[kind]=previous.filter(x=>x.id!==v.id);
+    if(!save()) {data[kind]=previous;return;}
+    editor.close();render();notice('Registro excluído.');
+  }
+}
+document.addEventListener('click',e=>{
+  const control=e.target.closest('[data-act]');
+  if(control) openAction(control.dataset.act,control.dataset.id);
+});
+page.addEventListener('change',e=>{
+  if(e.target.id==='game') {game=e.target.value;render();}
+  if(e.target.id==='state') {stateFilter=e.target.value;render();}
+});
+page.addEventListener('input',e=>{
+  if(e.target.id==='search') {
+    query=e.target.value;
+    const tmp=document.createElement('div');
+    tmp.innerHTML=videos();
+    $('#videoRows').replaceChildren(...tmp.querySelector('#videoRows').childNodes);
+  }
+});
+render();
+</script></body></html>
