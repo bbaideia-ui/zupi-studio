@@ -25,7 +25,24 @@ const seed = () => ({
 let data;
 try { data = JSON.parse(localStorage.getItem(key)); } catch {}
 data ??= seed();
-let view = 'home', game = '', query = '', stateFilter = '', month = new Date(), editing;
+const navigationKey = key + '-navigation';
+function readNavigation() {
+  try { return JSON.parse(sessionStorage.getItem(navigationKey)) ?? {}; }
+  catch { return {}; }
+}
+const navigation = readNavigation();
+const restoredMonth = new Date(navigation.month);
+let view = pages.some(([id]) => id === navigation.view) ? navigation.view : 'home';
+let game = navigation.game ?? '', query = navigation.query ?? '', stateFilter = navigation.stateFilter ?? '';
+let month = Number.isNaN(restoredMonth.getTime()) ? new Date() : restoredMonth;
+let editing;
+function saveNavigation() {
+  try {
+    sessionStorage.setItem(navigationKey, JSON.stringify({view, month:month.getTime(), game, query, stateFilter}));
+  } catch {
+    // The panel remains usable when session storage is unavailable.
+  }
+}
 const page = $('#page'), editor = $('#editor'), form = $('#form');
 const byId = (kind,id) => data[kind].find(v=>v.id===id);
 const status = (v,k) => Number(v[k] || 0);
@@ -86,6 +103,7 @@ function notes() {
   return heading('Diário do canal','Registre soluções, próximos vídeos, decisões de qualidade e resultados de testes.')+`<section class="panel"><div class="bar"><h2>Registros</h2>${button('newNote','＋ Novo registro','','gold')}</div>${data.notes.slice().reverse().map(v=>`<div class="entry"><div class="bar"><div><span class="tag">${esc(v.type)}</span> <strong>${esc(v.name)}</strong><span class="sub">${esc(v.related)} ${v.date?'· '+date(v.date):''}</span></div>${button('editNote','Editar',v.id)}</div><p class="notes">${esc(v.body)}</p>${v.result?`<p class="notes muted">${esc(v.result)}</p>`:''}</div>`).join('')||empty('Nenhum registro criado.')}</section>`;
 }
 function render() {
+  saveNavigation();
   $('nav').innerHTML=pages.map(([k,i,l])=>`<button type="button" data-act="go" data-id="${k}" class="${k===view?'active':''}" ${k===view?'aria-current="page"':''}><b aria-hidden="true">${i}</b>${l}</button>`).join('');
   page.innerHTML=({home,videos,calendar,stats,templates,notes})[view]();
 }
@@ -257,6 +275,7 @@ page.addEventListener('change',e=>{
 page.addEventListener('input',e=>{
   if(e.target.id==='search') {
     query=e.target.value;
+    saveNavigation();
     const tmp=document.createElement('div');
     tmp.innerHTML=videos();
     $('#videoRows').replaceChildren(...tmp.querySelector('#videoRows').childNodes);
