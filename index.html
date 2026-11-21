@@ -1,7 +1,7 @@
 <!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#141411"><meta name="description" content="Painel de produção e desempenho do canal Zupi"><title>Zupi Studio</title><style>
 :root{color-scheme:dark;--bg:#141411;--panel:#1d1c18;--line:#353229;--text:#f6f0e2;--muted:#b5ad9e;--gold:#f6c65f;--green:#9ad5b0;--blue:#a8c4ef;font:16px Inter,system-ui,sans-serif}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);display:grid;grid-template-columns:238px 1fr;min-height:100vh}aside{position:sticky;top:0;height:100vh;background:#191813;border-right:1px solid var(--line);display:flex;flex-direction:column;padding:31px 19px}.brand{display:flex;align-items:center;gap:13px;font-weight:900;font-size:22px;letter-spacing:.07em;padding:0 8px}.brand span{display:grid;place-items:center;background:var(--gold);color:#1b160a;width:44px;height:44px;border-radius:10px;font-style:italic;font-size:28px}.brand small{display:block;font-size:11px;color:var(--muted);letter-spacing:.23em}nav{display:grid;gap:6px;margin-top:42px}button,input,select,textarea{font:inherit;color:inherit}button{cursor:pointer;background:#25231d;border:1px solid var(--line);border-radius:8px;padding:9px 13px;font-size:.9rem;font-weight:650}button:hover{border-color:var(--gold)}button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:2px solid var(--gold);outline-offset:2px}nav button{text-align:left;border:1px solid transparent;background:transparent;color:var(--muted);white-space:nowrap;padding:12px}nav button.active{background:#322a19;border-color:#483a20;color:var(--gold)}nav b{display:inline-block;width:28px;font-size:1.05rem}.asidefoot{margin-top:auto;padding:18px 8px 0;border-top:1px solid var(--line)}small,.muted,label,th{color:var(--muted)}i{display:inline-block;width:7px;height:7px;border-radius:100%;background:var(--green);margin-right:6px}main{min-width:0}header{height:77px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 36px}header span,.eyebrow{font-size:.78rem;letter-spacing:.14em;font-weight:800;color:var(--gold)}header span{color:var(--muted)}.gold{background:var(--gold);color:#201707;border-color:var(--gold)}.gold:hover{background:#ffdb86}#page,footer{max-width:1440px;margin:auto;padding:30px 36px}footer{display:flex;justify-content:space-between;gap:12px;color:var(--muted);font-size:.83rem}.hero{isolation:isolate;position:relative;overflow:hidden;background:linear-gradient(106deg,#2c2415,#201c13 60%,#413019);border:1px solid #514024;border-radius:15px;padding:32px 34px;min-height:181px}.hero:after{content:"Z";position:absolute;z-index:-1;right:3%;top:-95px;line-height:1;color:#f6c65f12;font-size:360px;font-weight:1000;font-style:italic;transform:rotate(-13deg);text-shadow:12px 0 #f6c65f0b}.hero h1{font-size:clamp(2rem,4vw,3.15rem);letter-spacing:-.055em;margin:5px 0 7px}.hero p,h1+p{margin:0;color:#d1c6b1}.cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin:20px 0 26px}.card,.panel{background:var(--panel);border:1px solid var(--line);border-radius:12px}.card{padding:17px}.card b{font-size:1.85rem;display:block;margin-top:5px}.card .icon{float:right;color:var(--gold);font-size:1.15rem}.split{display:grid;grid-template-columns:minmax(0,2.65fr) minmax(220px,1fr);gap:16px;align-items:start}.panel{padding:18px;margin-bottom:16px}.panel h2{font-size:1.15rem;margin:0}.bar{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:15px}.scroll{overflow:auto}table{width:100%;border-collapse:collapse;text-align:left}th,td{padding:12px 8px;border-bottom:1px solid var(--line);white-space:nowrap;font-size:.88rem}tbody tr:last-child td{border-bottom:none}.sub{display:block;font-size:.8rem;color:var(--muted);margin-top:4px}.tag{display:inline-block;border-radius:5px;background:#343026;color:#deceb2;padding:4px 7px;font-size:.76rem;font-weight:750}.s1{background:#292f3a;color:var(--blue)}.s2{background:#25382b;color:var(--green)}.quick{display:flex;gap:5px}.quick button{padding:5px 8px}.entry{border-top:1px solid var(--line);padding:12px 0}.entry:last-child{padding-bottom:0}.empty{color:var(--muted);padding:15px 0;margin:0}.heading{margin:0 0 8px;font-size:2rem;letter-spacing:-.04em}.intro{margin-bottom:22px}.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}input,select,textarea{border:1px solid #484235;background:#161511;border-radius:7px;padding:9px 10px;min-width:0}.calendar{display:grid;grid-template-columns:repeat(7,1fr);gap:5px}.day{min-height:78px;border:1px solid var(--line);border-radius:7px;padding:6px;min-width:0}.day button{display:block;width:100%;margin-top:4px;text-align:left;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;padding:4px;font-size:.75rem}.today{border-color:var(--gold)}dialog{background:var(--panel);color:var(--text);width:min(760px,95vw);max-height:91vh;border:1px solid var(--line);border-radius:13px;padding:0}dialog::backdrop{background:#000b}.dialog-head,.dialog-foot{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:14px 20px;position:sticky;background:var(--panel);z-index:2}.dialog-head{top:0;border-bottom:1px solid var(--line)}.dialog-head h2{margin:0;font-size:1.2rem}.dialog-foot{bottom:0;border-top:1px solid var(--line);justify-content:end}.formbody{padding:16px 20px}.fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.fields label{display:grid;gap:5px;font-size:.88rem}.fields .wide{grid-column:1/-1}textarea{resize:vertical;min-height:75px}fieldset{margin:0 0 16px;border:1px solid var(--line);border-radius:8px;padding:12px}legend{color:var(--gold);font-weight:750;padding:0 6px}.checks{display:flex;flex-wrap:wrap;gap:11px}.checks label{display:flex;gap:5px;align-items:center}.actions{display:flex;flex-wrap:wrap;gap:8px}.notes{white-space:pre-wrap;overflow-wrap:anywhere}#toast{position:fixed;bottom:20px;right:20px;background:var(--gold);color:#201707;border-radius:8px;padding:9px 14px;z-index:5}#toast:empty{display:none}@media(max-width:1050px){.split{grid-template-columns:1fr}.split>*{min-width:0}}@media(max-width:720px){body{display:block}aside{position:static;height:auto;padding:13px 15px;gap:12px}.brand span{width:36px;height:36px}.asidefoot{display:none}nav{display:flex;overflow:auto;margin:0}nav button{padding:8px}nav b{width:19px}header{height:60px;padding:0 15px}#page,footer{padding:16px 15px}.hero{padding:25px 18px}.cards{grid-template-columns:repeat(2,1fr)}.panel{padding:12px}.day{min-height:60px;padding:3px}.fields{gap:9px}}
 </style></head>
-<body><aside><div class="brand"><span> Z </span><div>ZUPI <small>STUDIO</small></div></div><nav aria-label="Painel"></nav><div class="asidefoot"><i></i> Canal Zupi<br><small>Gameplay sem comentários</small></div></aside><main><header><span>ESTÚDIO DO CANAL</span><button class="gold" data-act="new">＋ Novo vídeo</button></header><div id="page"></div><footer>Zupi Studio <span>Dados salvos neste navegador</span></footer></main><dialog id="editor"><form id="form"></form></dialog><output id="toast" aria-live="polite"></output><script>
+<body><aside><div class="brand"><span> Z </span><div>ZUPI <small>STUDIO</small></div></div><nav aria-label="Painel"></nav><div class="asidefoot"><i></i> Canal Zupi<br><small>Gameplay sem comentários</small></div></aside><main><header><span>ESTÚDIO DO CANAL</span><button class="gold" data-act="new">＋ Novo vídeo</button></header><div id="page"></div><footer style="flex-wrap:wrap"><span>Dados salvos neste navegador</span><div class="actions"><button type="button" data-act="backup">Exportar backup</button><button type="button" data-act="restore">Restaurar backup</button><input id="backup-file" type="file" accept=".json,application/json" hidden aria-label="Arquivo de backup"></div></footer></main><dialog id="editor"><form id="form"></form></dialog><output id="toast" aria-live="polite"></output><script>
 'use strict';
 const $ = s => document.querySelector(s);
 const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -165,7 +165,54 @@ form.addEventListener('submit',e=>{
   if(!save()) {data[kind]=previous;return;}
   editor.close();render();notice('Alterações salvas.');
 });
+function exportBackup() {
+  const day = new Date().toLocaleDateString('sv-SE', {timeZone:'America/New_York'});
+  const backup = {format:'zupi-studio',version:1,exportedAt:new Date().toISOString(),data};
+  const url = URL.createObjectURL(new Blob([JSON.stringify(backup,null,2)], {type:'application/json'}));
+  const link = document.createElement('a');
+  link.href = url;
+  link.download = 'zupi-backup-' + day + '.json';
+  document.body.append(link);
+  link.click();
+  link.remove();
+  setTimeout(() => URL.revokeObjectURL(url), 30000);
+}
+function parseBackup(source) {
+  const backup = JSON.parse(source);
+  const restored = backup?.data;
+  if (backup?.format !== 'zupi-studio' || backup.version !== 1 ||
+      !['videos','templates','notes'].every(kind => {
+        const rows = restored?.[kind];
+        return Array.isArray(rows) && rows.every(row =>
+          row && typeof row.id === 'string' && row.id &&
+          Object.values(row).every(value => ['string','number','boolean'].includes(typeof value))
+        ) && new Set(rows.map(row => row.id)).size === rows.length;
+      })) throw new Error('Backup inválido');
+  return restored;
+}
+$('#backup-file').addEventListener('change', async event => {
+  const input = event.currentTarget;
+  const file = input.files[0];
+  input.value = '';
+  if (!file) return;
+  let restored;
+  try {
+    restored = parseBackup(await file.text());
+  } catch {
+    notice('Arquivo inválido. Escolha um backup JSON exportado pelo Zupi Studio.');
+    return;
+  }
+  if (!confirm('Restaurar o backup vai substituir os registros deste navegador. Continuar?')) return;
+  const previous = data;
+  data = restored;
+  if (!save()) { data = previous; return; }
+  game = ''; query = ''; stateFilter = '';
+  render();
+  notice('Backup restaurado.');
+});
 function openAction(act,id) {
+  if(act==='backup') {exportBackup();return;}
+  if(act==='restore') {$('#backup-file').click();return;}
   if(act==='go') {view=id;render();return;}
   if(act==='new') {formFor('videos',{...blank(),game});return;}
   if(act==='edit'||act==='metrics') formFor('videos',byId('videos',id),act);
